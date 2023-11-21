@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-RUN apk update && apk add --no-cache rust cargo
+RUN apk --no-cache add rust cargo
 
 COPY . /usr/src/perfomance-checker
 
