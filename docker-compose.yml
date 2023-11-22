@@ -1,0 +1,17 @@
+version: '3'
+services:
+  performance-checker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - DATABASE_URL=mysql://root:admin123@mysql/performance_checker
+    depends_on:
+      - mysql
+  mysql:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin123
+      - MYSQL_DATABASE=performance_checker
+    ports:
+      - '3306:3306'
